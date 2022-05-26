@@ -7,6 +7,7 @@ import handleSignIn from "./controllers/signin.js";
 import getProfile from "./controllers/profile.js";
 import updateCount from "./controllers/image.js";
 import makeApiCall from "./controllers/apicall.js";
+// import Client from "pg";
 const app = express();
 
 app.use(express.json());
@@ -15,11 +16,8 @@ app.use(cors());
 const db = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        port: 5432,
-        user: 'thanmaisahith',
-        password: 'Quantumcomputing1',
-        database: 'facerecbrain'
+        host: process.env.DATABASE_URL,
+        ssl: true
     }
 });
 
