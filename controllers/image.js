@@ -1,4 +1,4 @@
-const updateCount = (req, res) => {
+const updateCount = (req, res, db) => {
     const { id } = req.body;
     db('users').where('id', '=', id)
         .increment('entries', 1)
