@@ -52,8 +52,8 @@ app.put('/image', (req, res) => { updateCount(req, res, db) })
 // :/imageurl
 app.post('/imageurl', (req, res) => { makeApiCall(req, res) })
 
-app.listen(3000, () => {
-    console.log("App is up and running: 3000");
+app.listen(process.env.PORT||3000, () => {
+    console.log("App is up and running: ${process.env.PORT}");
 })
 
 
